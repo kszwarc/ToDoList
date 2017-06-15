@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:labelFor="@id/editTextName"
+        android:text="@string/nameTask"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="datetime"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:labelFor="@id/editTextDate"
+        android:text="@string/dateFinished"
+        android:textAlignment="center" />
+
+    <Spinner
+        android:id="@+id/spinnerPriority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="@string/priorityTask"
+        android:textAlignment="center" />
+
+    <Spinner
+        android:id="@+id/spinnerStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/statusTask"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:onClick="edit"
+        android:text="@string/edit" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:onClick="delete"
+        android:text="@string/delete" />
+</LinearLayout>

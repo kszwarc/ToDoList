@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pc.projekt.Controllers.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageViewTaskLists"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/taskLists"
+        android:onClick="launchListMenu"
+        app:srcCompat="@drawable/list" />
+
+    <TextView
+        android:id="@+id/textViewTaskLists"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewTaskLists"
+        android:layout_centerHorizontal="true"
+        android:onClick="launchListMenu"
+        android:text="@string/taskLists" />
+
+    <ImageView
+        android:id="@+id/imageViewTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageViewTaskLists"
+        android:layout_below="@+id/textViewTaskLists"
+        android:layout_marginTop="17dp"
+        android:contentDescription="@string/task"
+        android:onClick="launchTasksMenu"
+        app:srcCompat="@drawable/tasks" />
+
+    <TextView
+        android:id="@+id/textViewTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewTasks"
+        android:layout_centerHorizontal="true"
+        android:onClick="launchTasksMenu"
+        android:text="@string/task" />
+
+    <ImageView
+        android:id="@+id/imageViewExport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewTasks"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:contentDescription="@string/export"
+        android:onClick="launchExportList"
+        app:srcCompat="@drawable/export" />
+
+    <TextView
+        android:id="@+id/textViewExport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewExport"
+        android:layout_centerHorizontal="true"
+        android:onClick="launchExportList"
+        android:text="@string/export" />
+</RelativeLayout>

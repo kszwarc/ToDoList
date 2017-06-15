@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.pc.projekt">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <receiver android:name=".Models.AlarmReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+        <activity android:name=".Controllers.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Controllers.TasksManagement" android:theme="@style/Theme.NoTitle"/>
+        <activity android:name=".Controllers.ShowTasks" android:theme="@style/Theme.NoTitle"/>
+        <activity android:name=".Controllers.AddTask" android:theme="@style/Theme.NoTitle"/>
+        <activity android:name=".Controllers.EditTaskManagement" android:theme="@style/Theme.NoTitle"/>
+        <activity android:name=".Controllers.EditTask" android:theme="@style/Theme.NoTitle"/>
+        <activity android:name=".Controllers.AddAtachment" android:theme="@style/Theme.NoTitle"/>
+        <activity android:name=".Controllers.ShowAttachments" android:theme="@style/Theme.NoTitle"/>
+        <activity android:name=".Controllers.ToDoList"/>
+        <activity android:name=".Controllers.Notify"/>
+    </application>
+
+</manifest>
