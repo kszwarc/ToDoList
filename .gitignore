@@ -1,3 +1,6 @@
+.gradle
+!gradle/wrapper/gradle-wrapper.jar
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -48,3 +51,9 @@ Temporary Items
 build/
 app/
 
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
