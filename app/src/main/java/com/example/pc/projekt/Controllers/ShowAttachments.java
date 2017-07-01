@@ -36,14 +36,12 @@ public class ShowAttachments extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
         populateList();
     }
 
-    private void populateList()
-    {
+    private void populateList() {
         Intent intent = getIntent();
         Task task = TaskEntityQueries.getTask(getApplicationContext(), intent.getIntExtra("taskId", 0));
         attachementList = AttachmentsQueries.getAttachementsListToShow(getApplicationContext(), task.id);
@@ -60,8 +58,7 @@ public class ShowAttachments extends AppCompatActivity {
         });
     }
 
-    private void handleDelete()
-    {
+    private void handleDelete() {
         DialogInterface.OnClickListener deleteListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -75,8 +72,7 @@ public class ShowAttachments extends AppCompatActivity {
                 .setNegativeButton(getString(R.string.no), null).show();
     }
 
-    private void populateAttachmentsWithImages(List<Attachement> attachementsList)
-    {
+    private void populateAttachmentsWithImages(List<Attachement> attachementsList) {
         for (Attachement attachement : attachementsList)
         {
             File imgFile = new  File(attachement.path);

@@ -43,8 +43,12 @@ public class AddAtachment extends AppCompatActivity {
         newdir.mkdirs();
     }
 
-    private File createNewFile(String extension)
-    {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private File createNewFile(String extension) {
         count++;
         String file = dir + count + "."+extension;
         File newFile = new File(file);
@@ -55,8 +59,7 @@ public class AddAtachment extends AppCompatActivity {
         return newFile;
     }
 
-    public void buttonOnClickSaveMovie(View v)
-    {
+    public void buttonOnClickSaveMovie(View v) {
         outputFileUri = Uri.fromFile(createNewFile("mp4"));
         int permission = ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA);
         if (permission != PackageManager.PERMISSION_GRANTED)
@@ -65,8 +68,7 @@ public class AddAtachment extends AppCompatActivity {
             saveMovie();
     }
 
-    public void buttonOnClickSavePhoto(View v)
-    {
+    public void buttonOnClickSavePhoto(View v) {
         outputFileUri = Uri.fromFile(createNewFile("jpg"));
         int permission = ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA);
         if (permission != PackageManager.PERMISSION_GRANTED)
@@ -75,24 +77,17 @@ public class AddAtachment extends AppCompatActivity {
             savePhoto();
     }
 
-    private void saveMovie()
-    {
+    private void saveMovie() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
         startActivityForResult(cameraIntent, 0);
         AttachmentEntityCommands.insertNewAttachment(getApplicationContext(), task.id, outputFileUri.getPath());
     }
 
-    private void savePhoto()
-    {
+    private void savePhoto() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
         startActivityForResult(cameraIntent, 1);
         AttachmentEntityCommands.insertNewAttachment(getApplicationContext(), task.id, outputFileUri.getPath());
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
     }
 }

@@ -29,8 +29,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             showNotification(context.getString(R.string.tasksToday), tasksToShow, 002, context);
     }
 
-    private void showNotification(String title, List<Task> tasks, int id, Context context)
-    {
+    private void showNotification(String title, List<Task> tasks, int id, Context context) {
         String text = generateTasksNames(tasks, context);
         Intent intent = new Intent(context, Notify.class);
         intent.putExtra("text", text);
@@ -45,8 +44,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         mNotificationManager.notify(id, mBuilder.build());
     }
 
-    private String generateTasksNames(List<Task> tasks, Context context)
-    {
+    private String generateTasksNames(List<Task> tasks, Context context) {
         StringBuilder sb = new StringBuilder("");
         for (Task task : tasks)
             sb.append(context.getString(R.string.name)+": "+task.name+" ("+context.getString(R.string.priority)+": "+task.priority+"; "+

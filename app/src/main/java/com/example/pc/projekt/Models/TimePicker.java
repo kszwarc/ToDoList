@@ -26,7 +26,14 @@ public class TimePicker extends DialogFragment implements TimePickerDialog.OnTim
     }
 
     @Override
-    public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
-        editText.setText(editText.getText() + " - " + hourOfDay + ":"	+ minute);
+    public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minutes) {
+        editText.setText(editText.getText() + " - " + addZeroAsPrefixIfOneCharInString(String.valueOf(hourOfDay)) + ":"
+                + addZeroAsPrefixIfOneCharInString(String.valueOf(minutes)));
+    }
+
+    private String addZeroAsPrefixIfOneCharInString(String text){
+        if (text.length()==1)
+            return "0"+text;
+        return text;
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Projekt</string>
+    <string name="app_name">ToDoList</string>
     <string name="export">Eksport zadań</string>
     <string name="task">Zarządzanie zadaniami</string>
     <string name="taskLists">Lista zadań</string>

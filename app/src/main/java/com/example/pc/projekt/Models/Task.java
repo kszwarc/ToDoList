@@ -15,8 +15,7 @@ public class Task{
     public String name, priority, status;
     private String addedTime, plannedTime;
 
-    public void setAddedTime(String time)
-    {
+    public void setAddedTime(String time) {
         if (isDateTimeValid(time))
             addedTime = time;
     }
@@ -26,8 +25,7 @@ public class Task{
         return addedTime;
     }
 
-    public void setPlannedTime(String time)
-    {
+    public void setPlannedTime(String time) {
         if (isDateTimeValid(time))
             plannedTime = time;
     }
@@ -37,13 +35,11 @@ public class Task{
         return plannedTime;
     }
 
-    public static boolean validateFormData(String name, int priorityId, int statusId, String date)
-    {
+    public static boolean validateFormData(String name, int priorityId, int statusId, String date) {
         return name.length()>0 && priorityId>0 && statusId>0 && isDateTimeValid(date);
     }
 
-    private static boolean isDateTimeValid(String date)
-    {
+    private static boolean isDateTimeValid(String date) {
         String[] dateAndTime = date.split(" - ");
         if (dateAndTime.length!=2)
             return false;
@@ -52,16 +48,14 @@ public class Task{
         return isTimeValid(dateAndTime[1]);
     }
 
-    private static boolean isTimeValid(String text)
-    {
+    private static boolean isTimeValid(String text) {
         String[] time = text.split(":");
         if (time.length!=2)
             return false;
         return areHoursValid(time[0]) && areMinutesValid(time[1]);
     }
 
-    private static boolean areMinutesValid(String minutes)
-    {
+    private static boolean areMinutesValid(String minutes) {
         try
         {
             int hour = Integer.parseInt(minutes);
@@ -73,8 +67,7 @@ public class Task{
         }
     }
 
-    private static boolean areHoursValid(String hours)
-    {
+    private static boolean areHoursValid(String hours) {
         try
         {
             int hour = Integer.parseInt(hours);
@@ -86,8 +79,7 @@ public class Task{
         }
     }
 
-    private static boolean isDateValid(String date)
-    {
+    private static boolean isDateValid(String date) {
         String format = "dd/mm/yyyy";
         try {
             DateFormat df = new SimpleDateFormat(format);

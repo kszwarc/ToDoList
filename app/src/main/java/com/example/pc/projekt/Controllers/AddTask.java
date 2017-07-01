@@ -42,8 +42,7 @@ public class AddTask extends AppCompatActivity {
         setStatuses();
     }
 
-    public void add(View v)
-    {
+    public void add(View v) {
         if (Task.validateFormData(name.getText().toString(), prioritiesId[priority.getSelectedItemPosition()], statusesId[status.getSelectedItemPosition()], dateTime.getText().toString()))
         {
             TaskEntityCommands.insertNewTask(getApplicationContext(), prepareTask());
@@ -54,8 +53,7 @@ public class AddTask extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), getString(R.string.invalidData), Toast.LENGTH_LONG).show();
     }
 
-    protected Task prepareTask()
-    {
+    protected Task prepareTask() {
         Task task = new Task();
         task.priorityId = prioritiesId[priority.getSelectedItemPosition()];
         task.statusId = statusesId[status.getSelectedItemPosition()];
@@ -64,8 +62,7 @@ public class AddTask extends AppCompatActivity {
         return task;
     }
 
-    protected void setStatuses()
-    {
+    protected void setStatuses() {
         status = (Spinner)findViewById(R.id.spinnerStatus);
         List<Status> statuses = StatusEntityQueries.getStatusList(getApplicationContext());
         String[] list = StatusesToShow.getStatusesNames(statuses);
@@ -74,8 +71,7 @@ public class AddTask extends AppCompatActivity {
         status.setAdapter(adapter);
     }
 
-    protected void setPriorities()
-    {
+    protected void setPriorities() {
         priority = (Spinner)findViewById(R.id.spinnerPriority);
         List<Priority> priorities = PriorityEntityQueries.getPriorities(getApplicationContext());
         String[] list = PrioritiesToShow.getPrioritiesNames(priorities);
@@ -84,8 +80,7 @@ public class AddTask extends AppCompatActivity {
         priority.setAdapter(adapter);
     }
 
-    protected void setDateTime()
-    {
+    protected void setDateTime() {
         dateTime = (EditText)findViewById(R.id.editTextDate);
         dateTime.setInputType(InputType.TYPE_NULL);
         dateTime.setOnClickListener(new View.OnClickListener() {
@@ -102,8 +97,7 @@ public class AddTask extends AppCompatActivity {
         picker.show(getFragmentManager(), "datePicker");
     }
 
-    private void clearFields()
-    {
+    private void clearFields() {
         dateTime.setText("");
         name.setText("");
     }

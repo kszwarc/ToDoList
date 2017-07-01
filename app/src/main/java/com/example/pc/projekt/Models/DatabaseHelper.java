@@ -20,8 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         execOnDelimeter(dbUpdateTables, db);
     }
 
-    private void execOnDelimeter(String text, SQLiteDatabase db)
-    {
+    private void execOnDelimeter(String text, SQLiteDatabase db) {
         String[] textOnDelimeter = text.split(";");
         for (String sql : textOnDelimeter)
             if (sql.length()>0)

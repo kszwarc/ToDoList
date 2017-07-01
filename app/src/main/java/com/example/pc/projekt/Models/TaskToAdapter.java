@@ -11,8 +11,7 @@ import java.util.List;
  */
 
 public class TaskToAdapter {
-    public static ArrayList<HashMap<String,String>> generateTasksHashMapList(List<Task> tasksToShow)
-    {
+    public static ArrayList<HashMap<String,String>> generateTasksHashMapList(List<Task> tasksToShow) {
         ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
         for (Task task : tasksToShow)
         {

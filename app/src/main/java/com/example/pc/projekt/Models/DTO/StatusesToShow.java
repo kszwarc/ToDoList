@@ -10,16 +10,14 @@ import java.util.List;
  */
 
 public class StatusesToShow {
-    public static String[] getStatusesNames(List<Status> statuses)
-    {
+    public static String[] getStatusesNames(List<Status> statuses) {
         String[] names = new String[statuses.size()];
         for(int i=0; i<statuses.size(); i++)
             names[i] = statuses.get(i).status;
         return names;
     }
 
-    public static Integer[] getStatusesId(List<Status> statuses)
-    {
+    public static Integer[] getStatusesId(List<Status> statuses) {
         Integer[] ids = new Integer[statuses.size()];
         for(int i=0; i<statuses.size(); i++)
             ids[i] = statuses.get(i).id;

@@ -9,18 +9,7 @@ import android.database.*;
  */
 
 public class StatusEntityQueries {
-    public static int getId(Context context, String name)
-    {
-        SQLiteDatabase db = Database.getOpenedDatabase(context);
-        SQLiteStatement stmt = db.compileStatement("SELECT id_status FROM status WHERE status=?");
-        stmt.bindString(1, name);
-        int id = Integer.parseInt(stmt.simpleQueryForString());
-        db.close();
-        return id;
-    }
-
-    public static List<Status> getStatusList(Context context)
-    {
+    public static List<Status> getStatusList(Context context) {
         SQLiteDatabase db = Database.getOpenedDatabase(context);
         List<Status> statuses = new ArrayList<Status>();
         Cursor cursor = db.rawQuery("SELECT id_status, status FROM status", null);

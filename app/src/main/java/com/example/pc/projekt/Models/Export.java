@@ -15,8 +15,7 @@ import java.util.List;
 public class Export
 {
 
-    public static boolean export(Context context)
-    {
+    public static boolean export(Context context) {
         List<Task> tasksToShow = TaskEntityQueries.getTasksListToShow(context, "WHERE status='Na liście'", "");
         File root = new File(Environment.getExternalStorageDirectory().toString());
         File file = new File(root, "lista.txt");

@@ -14,8 +14,7 @@ import android.database.sqlite.SQLiteStatement;
  */
 
 public class TaskEntityCommands {
-    public static void insertNewTask(Context context, Task task)
-    {
+    public static void insertNewTask(Context context, Task task) {
         SQLiteDatabase db = Database.getOpenedDatabase(context);
         SQLiteStatement stmt = db.compileStatement("INSERT INTO task (id_status, id_priority, task, finished_date) VALUES ("+
                 task.statusId+", "+task.priorityId+", ?, ?)");
@@ -25,8 +24,7 @@ public class TaskEntityCommands {
         db.close();
     }
 
-    public static void updateTask(Context context, Task task)
-    {
+    public static void updateTask(Context context, Task task) {
         SQLiteDatabase db = Database.getOpenedDatabase(context);
         SQLiteStatement stmt = db.compileStatement("UPDATE task SET id_status="+task.statusId+", id_priority="+task.priorityId+"," +
                 " task=?, finished_date=? WHERE id_task="+task.id);
@@ -36,15 +34,13 @@ public class TaskEntityCommands {
         db.close();
     }
 
-    public static void deleteTask(Context context, int id)
-    {
+    public static void deleteTask(Context context, int id) {
         SQLiteDatabase db = Database.getOpenedDatabase(context);
         db.execSQL("Delete FROM task WHERE id_task="+id);
         db.close();
     }
 
-    private static String convertDateToDB(String date)
-    {
+    private static String convertDateToDB(String date) {
         String[] dateTime = date.split(" ");
         String[] dateFragments = dateTime[0].split("/");
         String[] timeFragments = dateTime[2].split(":");

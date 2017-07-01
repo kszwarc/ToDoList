@@ -35,6 +35,7 @@ public class DatePicker extends DialogFragment implements DatePickerDialog.OnDat
 
     public void setEditText(EditText editText)
     {
+
         this.editText = editText;
     }
 

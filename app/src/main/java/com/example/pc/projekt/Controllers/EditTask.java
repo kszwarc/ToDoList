@@ -34,22 +34,7 @@ public class EditTask extends AddTask {
         setTaskData();
     }
 
-    private void setTaskData()
-    {
-        name.setText(task.name.toString());
-        dateTime.setText(task.getPlannedTime().toString());
-        status.setSelection(Arrays.asList(statusesId).indexOf(task.statusId));
-        priority.setSelection(Arrays.asList(prioritiesId).indexOf(task.priorityId));
-    }
-
-    private Task getTask()
-    {
-        Intent intent = getIntent();
-        return TaskEntityQueries.getTask(getApplicationContext(), intent.getIntExtra("taskId", 0));
-    }
-
-    public void delete(View v)
-    {
+    public void delete(View v) {
         DialogInterface.OnClickListener deleteListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -63,8 +48,7 @@ public class EditTask extends AddTask {
                 .setNegativeButton(getString(R.string.no), null).show();
     }
 
-    public void edit(View v)
-    {
+    public void edit(View v) {
         if (Task.validateFormData(name.getText().toString(), prioritiesId[priority.getSelectedItemPosition()], statusesId[status.getSelectedItemPosition()], dateTime.getText().toString()))
         {
             Task task = prepareTask();
@@ -74,6 +58,18 @@ public class EditTask extends AddTask {
         }
         else
             Toast.makeText(getApplicationContext(), getString(R.string.invalidData), Toast.LENGTH_LONG).show();
+    }
+
+    private void setTaskData() {
+        name.setText(task.name.toString());
+        dateTime.setText(task.getPlannedTime().toString());
+        status.setSelection(Arrays.asList(statusesId).indexOf(task.statusId));
+        priority.setSelection(Arrays.asList(prioritiesId).indexOf(task.priorityId));
+    }
+
+    private Task getTask() {
+        Intent intent = getIntent();
+        return TaskEntityQueries.getTask(getApplicationContext(), intent.getIntExtra("taskId", 0));
     }
 
 }

@@ -12,8 +12,7 @@ import com.example.pc.projekt.Models.Task;
  */
 
 public class AttachmentEntityCommands {
-    public static void insertNewAttachment(Context context, int taskid, String path)
-    {
+    public static void insertNewAttachment(Context context, int taskid, String path) {
         SQLiteDatabase db = Database.getOpenedDatabase(context);
         SQLiteStatement stmt = db.compileStatement("INSERT INTO file (id_task, path) VALUES ("+
                 taskid+", ?)");
@@ -22,8 +21,7 @@ public class AttachmentEntityCommands {
         db.close();
     }
 
-    public static void deleteAttachment(Context context, int id)
-    {
+    public static void deleteAttachment(Context context, int id) {
         SQLiteDatabase db = Database.getOpenedDatabase(context);
         db.execSQL("Delete FROM file WHERE id_file="+id);
         db.close();

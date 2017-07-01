@@ -16,8 +16,7 @@ import java.util.List;
 
 public class AttachmentsQueries {
 
-    public static int getLastAttachmentId(Context context, int taskId)
-    {
+    public static int getLastAttachmentId(Context context, int taskId) {
         SQLiteDatabase db = Database.getOpenedDatabase(context);
         SQLiteStatement stmt = db.compileStatement("SELECT MAX(id_file) FROM file WHERE id_task="+taskId);
         int id;
@@ -33,8 +32,7 @@ public class AttachmentsQueries {
         return id;
     }
 
-    public static List<Attachement> getAttachementsListToShow(Context context, int taskId)
-    {
+    public static List<Attachement> getAttachementsListToShow(Context context, int taskId) {
         SQLiteDatabase db = Database.getOpenedDatabase(context);
         List<Attachement> attachements = new ArrayList<Attachement>();
         Cursor cursor = db.rawQuery("SELECT id_file, path FROM file WHERE id_task="+taskId, null);

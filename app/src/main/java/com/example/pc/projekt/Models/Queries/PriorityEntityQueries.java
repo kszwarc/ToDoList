@@ -9,8 +9,7 @@ import android.database.*;
  */
 
 public class PriorityEntityQueries {
-    public static List<Priority> getPriorities(Context context)
-    {
+    public static List<Priority> getPriorities(Context context) {
         SQLiteDatabase db = Database.getOpenedDatabase(context);
         List<Priority> priorities = new ArrayList<Priority>();
         Cursor cursor = db.rawQuery("SELECT id_priority, priority FROM priority", null);

@@ -68,21 +68,18 @@ public class MainActivity extends AppCompatActivity {
             exportList();
     }
 
-    private void exportList()
-    {
+    private void exportList() {
         if (Export.export(getApplicationContext()))
             Toast.makeText(getApplication(), getString(R.string.exportedListSuccessful), Toast.LENGTH_LONG).show();
     }
 
-    private void checkCameraPermissions()
-    {
+    private void checkCameraPermissions() {
         int permission = ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA);
         if (permission != PackageManager.PERMISSION_GRANTED )
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 222);
     }
 
-    private void checkOldTasks()
-    {
+    private void checkOldTasks() {
         Calendar calendar = Calendar.getInstance();
         Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
