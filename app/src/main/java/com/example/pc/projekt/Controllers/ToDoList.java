@@ -22,8 +22,7 @@ import java.util.List;
 
 public class ToDoList extends ShowTasks {
 
-    public ToDoList()
-    {
+    public ToDoList() {
         super("WHERE status='Na liście'");
     }
 
